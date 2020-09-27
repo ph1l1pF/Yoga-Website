@@ -1,0 +1,15 @@
+.app {
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    line-height: 31px;
+    font-size: 22px;
+    font-family: abel, sans-serif;
+    font-weight: 400;
+    background-color: #C1272D;
+}
+
+.navbar-header {
+    color: darkred;
+    font-family: abel, sans-serif;
+}

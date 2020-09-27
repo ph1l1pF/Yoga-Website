@@ -1,0 +1,45 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
+})
+export class ContactComponent implements OnInit {
+
+  @ViewChild('inputMailFrom', { static: true }) inputMailFrom: any;
+  @ViewChild('inputName', { static: true }) inputName: any;
+  @ViewChild('inputMailText', { static: true }) inputMailText: any;
+
+  messageSent = false;
+
+  constructor(private httpClient: HttpClient) { }
+
+  ngOnInit() {
+  }
+
+  btnSendDisabled(): boolean {
+    const hasMail = this.inputMailFrom.nativeElement.value && this.inputMailFrom.nativeElement.value.toString().trim()
+                    && this.inputMailFrom.nativeElement.value.toString().indexOf('@')!==-1;
+    const hasName = this.inputName.nativeElement.value && this.inputName.nativeElement.value.trim();
+    const hasText = this.inputMailText.nativeElement.value && this.inputMailText.nativeElement.value.trim();
+    return !hasMail || !hasName || !hasText;
+  }
+
+  sendMail() {
+    const url = `http://localhost:3000/sendmail/
+                ${this.inputMailFrom.nativeElement.value}/
+                ${this.inputName.nativeElement.value }/
+                ${this.inputMailText.nativeElement.value }`;
+
+    this.httpClient.post(url, null).subscribe(() => {});
+
+    this.messageSent = true;
+
+    this.inputMailFrom.nativeElement.value = '';
+    this.inputMailText.nativeElement.value = '';
+    this.inputName.nativeElement.value = '';
+  }
+
+}

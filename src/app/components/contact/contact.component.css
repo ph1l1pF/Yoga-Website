@@ -1,0 +1,21 @@
+.address {
+    line-height: 20px;
+    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+.contact-data {
+    line-height: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin-top: 45px;
+    color: black;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+.sent-message {
+    margin-top: 10px;
+}
