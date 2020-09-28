@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'kurse', component: CoursesComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: 'impressum', component: ImpressComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

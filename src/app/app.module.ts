@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ImpressComponent } from './components/impress/impress.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     MediaMatcher,
     Platform,
     BreakpointObserver,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
