@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -28,7 +29,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendMail() {
-    const url = `http://localhost:3000/sendmail/
+    const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/sendmail/
                 ${this.inputMailFrom.nativeElement.value}/
                 ${this.inputName.nativeElement.value }/
                 ${this.inputMailText.nativeElement.value }`;
