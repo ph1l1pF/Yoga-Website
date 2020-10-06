@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { catchError } from 'rxjs/operators'; 
+import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 
@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
   @ViewChild('inputMailFrom', { static: true }) inputMailFrom: any;
   @ViewChild('inputName', { static: true }) inputName: any;
@@ -20,9 +20,6 @@ export class ContactComponent implements OnInit {
   messageSentFailure = false;
 
   constructor(private httpClient: HttpClient) { }
-
-  ngOnInit() {
-  }
 
   btnSendDisabled(): boolean {
     const hasMail = this.inputMailFrom.nativeElement.value && this.inputMailFrom.nativeElement.value.toString().trim()
@@ -37,11 +34,10 @@ export class ContactComponent implements OnInit {
                 ${this.inputMailFrom.nativeElement.value}/
                 ${this.inputName.nativeElement.value}/
                 ${this.inputMailText.nativeElement.value}`;
-    
 
     this.httpClient.post(url, null)
       .pipe(
-        catchError( () =>this.handleError())
+        catchError(() => this.handleError())
       )
       .subscribe((response: any) => {
         console.log(response)
