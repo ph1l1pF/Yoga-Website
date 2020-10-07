@@ -18,6 +18,7 @@ export class ContactComponent {
 
   messageSentSuccess = false;
   messageSentFailure = false;
+  messageSending = false;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,6 +31,9 @@ export class ContactComponent {
   }
 
   sendMail() {
+
+    this.messageSending = true;
+
     const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/sendmail/
                 ${this.inputMailFrom.nativeElement.value}/
                 ${this.inputName.nativeElement.value}/
@@ -40,18 +44,16 @@ export class ContactComponent {
         catchError(() => this.handleError())
       )
       .subscribe((response: any) => {
-        console.log(response)
+        this.messageSending = false;
         if (response.statusCode === 200) {
           this.messageSentSuccess = true;
+          this.inputMailFrom.nativeElement.value = '';
+          this.inputMailText.nativeElement.value = '';
+          this.inputName.nativeElement.value = '';
         } else {
           this.messageSentFailure = true;
         }
       });
-
-
-    this.inputMailFrom.nativeElement.value = '';
-    this.inputMailText.nativeElement.value = '';
-    this.inputName.nativeElement.value = '';
   }
 
   private handleError(): Observable<any> {

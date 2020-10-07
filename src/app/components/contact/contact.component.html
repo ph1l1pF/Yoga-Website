@@ -31,13 +31,18 @@
         (keyup)="btnSendDisabled()"></textarea>
     </div>
     <div class="button-area">
-      <button type="button" class="btn btn-secondary" [disabled]="btnSendDisabled()" (click)="sendMail()">Nachricht
-        senden</button>
+      <button type="button" class="btn btn-secondary" [disabled]="btnSendDisabled()" (click)="sendMail()">
+        Nachricht senden
+      </button>
+
+      <div *ngIf="messageSending" class="spinner-border spinner" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
       <div class="sent-message-success" *ngIf="messageSentSuccess">
         Ihre Nachricht wurde erfolgreich gesendet!
       </div>
       <div class="sent-message-failure" *ngIf="messageSentFailure">
-        Ihre Nachricht konnte nicht gesendet werden. 
+        Ihre Nachricht konnte nicht gesendet werden.
         <br>
         Bitte schicken Sie Ihre Nachricht als E-Email an die oben aufgeführte E-Mail-Adresse.
       </div>
