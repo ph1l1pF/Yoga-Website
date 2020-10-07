@@ -45,7 +45,7 @@ export class ContactComponent {
       )
       .subscribe((response: any) => {
         this.messageSending = false;
-        if (response.statusCode === 200) {
+        if (response.statusCode === 202) {
           this.messageSentSuccess = true;
           this.inputMailFrom.nativeElement.value = '';
           this.inputMailText.nativeElement.value = '';
