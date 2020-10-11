@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { MessageState } from 'src/app/app.model';
 
 
 @Component({
@@ -16,9 +17,7 @@ export class ContactComponent {
   @ViewChild('inputName', { static: true }) inputName: any;
   @ViewChild('inputMailText', { static: true }) inputMailText: any;
 
-  messageSentSuccess = false;
-  messageSentFailure = false;
-  messageSending = false;
+  public messageState: MessageState = 'idle';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,32 +31,31 @@ export class ContactComponent {
 
   sendMail() {
 
-    this.messageSending = true;
+    this.messageState = 'sending';
 
     const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/sendmail/
-                ${this.inputMailFrom.nativeElement.value}/
-                ${this.inputName.nativeElement.value}/
-                ${this.inputMailText.nativeElement.value}`;
+                ${this.inputMailFrom.nativeElement.value.trim()}/
+                ${this.inputName.nativeElement.value.trim()}/
+                ${this.inputMailText.nativeElement.value.trim()}`;
 
     this.httpClient.post(url, null)
       .pipe(
         catchError(() => this.handleError())
       )
       .subscribe((response: any) => {
-        this.messageSending = false;
         if (response.statusCode === 202) {
-          this.messageSentSuccess = true;
+          this.messageState = 'sentSuccessfully';
           this.inputMailFrom.nativeElement.value = '';
           this.inputMailText.nativeElement.value = '';
           this.inputName.nativeElement.value = '';
         } else {
-          this.messageSentFailure = true;
+          this.messageState = 'sentFailure';
         }
       });
   }
 
   private handleError(): Observable<any> {
-    this.messageSentFailure = true;
+    this.messageState = 'sentFailure';
     return of({});
   }
 

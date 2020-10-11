@@ -35,13 +35,13 @@
         Nachricht senden
       </button>
 
-      <div *ngIf="messageSending" class="spinner-border spinner" role="status">
+      <div *ngIf="messageState==='sending'" class="spinner-border spinner" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-      <div class="sent-message-success" *ngIf="messageSentSuccess">
+      <div *ngIf="messageState==='sentSuccessfully'" class="sent-message-success">
         Ihre Nachricht wurde erfolgreich gesendet!
       </div>
-      <div class="sent-message-failure" *ngIf="messageSentFailure">
+      <div *ngIf="messageState==='sentFailure'" class="sent-message-failure">
         Ihre Nachricht konnte nicht gesendet werden.
         <br>
         Bitte schicken Sie Ihre Nachricht als E-Email an die oben aufgeführte E-Mail-Adresse.
