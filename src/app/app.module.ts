@@ -1,19 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ViewContainerRef } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { YogaRoomComponent } from './components/yoga-room/yoga-room.component';
 import { BreakpointObserver, LayoutModule, MediaMatcher } from '@angular/cdk/layout';
 import { Platform } from '@angular/cdk/platform';
-import { FooterComponent } from './components/footer/footer.component';
-import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
-import { ImpressComponent } from './components/impress/impress.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ImpressComponent } from './components/impress/impress.component';
+import { YogaRoomComponent } from './components/yoga-room/yoga-room.component';
+
 
 @NgModule({
   declarations: [
