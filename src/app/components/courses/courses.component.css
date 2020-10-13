@@ -14,10 +14,11 @@
     width: 95px;
     background-color: white;
     border-radius: 50%;
-    display: inline-block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     color: #C1272D;
     text-align: center;
-    padding-top: 35px;
     font-weight: 24px;
     margin-bottom: 10px;
   }
