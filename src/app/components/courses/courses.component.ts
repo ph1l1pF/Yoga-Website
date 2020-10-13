@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { constants } from 'src/constants';
 
 @Component({
   selector: 'app-courses',
@@ -10,6 +11,7 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { MessageState } from 'src/app/app.model';
+import { constants } from 'src/constants';
 
 
 @Component({
@@ -19,7 +20,10 @@ export class ContactComponent {
 
   public messageState: MessageState = 'idle';
 
-  constructor(private httpClient: HttpClient) { }
+  public constants = constants;
+
+  constructor(private httpClient: HttpClient) { 
+  }
 
   btnSendDisabled(): boolean {
     const hasMail = this.inputMailFrom.nativeElement.value && this.inputMailFrom.nativeElement.value.toString().trim()
