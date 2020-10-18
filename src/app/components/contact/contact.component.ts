@@ -37,10 +37,13 @@ export class ContactComponent {
 
     this.messageState = 'sending';
 
+    let message: string = this.inputMailText.nativeElement.value.trim();
+    message = message.replace(/(?:\r\n|\r|\n)/g, '\t');
+
     const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/sendmail/
                 ${this.inputMailFrom.nativeElement.value.trim()}/
                 ${this.inputName.nativeElement.value.trim()}/
-                ${this.inputMailText.nativeElement.value.trim()}`;
+                ${message}`;
 
     this.httpClient.post(url, null)
       .pipe(
