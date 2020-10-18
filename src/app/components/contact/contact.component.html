@@ -39,13 +39,13 @@
       <div *ngIf="messageState==='sending'" class="spinner-border spinner" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-      <div *ngIf="messageState==='sentSuccessfully'" class="sent-message-success">
-        Ihre Nachricht wurde erfolgreich gesendet!
+      <div *ngIf="messageState==='sentSuccessfully'">
+        <a class="badge badge-success">Nachricht erfolgreich gesendet!</a>
       </div>
       <div *ngIf="messageState==='sentFailure'" class="sent-message-failure">
-        Ihre Nachricht konnte nicht gesendet werden.
+        <a class="badge badge-warning">Nachricht nicht gesendet!</a>
         <br>
-        Bitte schicken Sie Ihre Nachricht als E-Email an die oben aufgeführte E-Mail-Adresse.
+        Es ist ein Fehler aufgetreten. Bitte schicken Sie Ihre Nachricht als E-Email an die oben aufgeführte E-Mail-Adresse.
       </div>
     </div>
   </form>

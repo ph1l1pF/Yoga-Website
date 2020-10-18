@@ -22,7 +22,6 @@
 }
 
 .sent-message-failure {
-    margin-top: 10px;
     color: orange;
 }
 
@@ -32,4 +31,15 @@
 
 .small-text {
     color: darkgray;
+}
+
+.button-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button-area > * {
+    margin-top: 10px;
+    margin-right: 10px;
 }
