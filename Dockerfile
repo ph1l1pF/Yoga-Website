@@ -22,7 +22,7 @@ COPY . /app
 
 
 # generate build
-RUN ng build --output-path=dist
+RUN ng build --prod --output-path=dist
 
 ############
 ### prod ###
@@ -35,7 +35,7 @@ FROM nginx:1.16.0-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # copy config file
-COPY mysite.conf /etc/nginx/conf.d/mysife.conf
+#COPY mysite.conf /etc/nginx/conf.d/mysife.conf
 
 
 # expose port 80
