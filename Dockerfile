@@ -22,7 +22,7 @@ COPY . /app
 
 
 # generate build
-RUN ng build --prod --output-path=dist
+RUN ng build --prod
 
 ############
 ### prod ###
