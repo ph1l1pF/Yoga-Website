@@ -2,6 +2,6 @@ default: run
 
 run:
 	git pull
-	docker build  -t example:prod .
-	kill $(lsof -t -i:80)
-	docker run -it -p 80:80 --rm example:prod &.
+	docker-compose down
+	docker build  -t yoga-website .
+	docker run -it -p 80:80 --rm yoga-website &.
