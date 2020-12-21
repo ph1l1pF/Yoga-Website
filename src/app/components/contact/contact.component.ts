@@ -40,7 +40,7 @@ export class ContactComponent {
     let message: string = this.inputMailText.nativeElement.value.trim();
     message = message.replace(/(?:\r\n|\r|\n)/g, '\t');
 
-    const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/sendmail/
+    const url = `https://${environment.backendServerAdress}:${environment.backendServerPort}/mail/sendmail/
                 ${this.inputMailFrom.nativeElement.value.trim()}/
                 ${this.inputName.nativeElement.value.trim()}/
                 ${message}`;
@@ -49,7 +49,7 @@ export class ContactComponent {
       .pipe(
         catchError(() => this.handleError())
       )
-      .subscribe((response: any) => {
+      .subscribe((response: {statusCode: number}) => {
         if (response.statusCode === 202) {
           this.messageState = 'sentSuccessfully';
           this.inputMailFrom.nativeElement.value = '';
