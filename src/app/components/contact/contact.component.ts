@@ -40,7 +40,7 @@ export class ContactComponent {
     let message: string = this.inputMailText.nativeElement.value.trim();
     message = message.replace(/(?:\r\n|\r|\n)/g, '\t');
 
-    const url = `https://${environment.backendServerAdress}:${environment.backendServerPort}/mail/sendmail/
+    const url = `http://${environment.backendServerAdress}:${environment.backendServerPort}/mail/sendmail/
                 ${this.inputMailFrom.nativeElement.value.trim()}/
                 ${this.inputName.nativeElement.value.trim()}/
                 ${message}`;
