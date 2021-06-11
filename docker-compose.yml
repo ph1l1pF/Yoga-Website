@@ -4,8 +4,7 @@ services:
 
   yoga-website-frontend:
     container_name: yoga-website-frontend
-    build:
-      context: .
-      dockerfile: Dockerfile
+    restart: on-failure
+    build: .
     ports:
       - '80:80'
