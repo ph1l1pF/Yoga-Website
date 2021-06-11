@@ -1,7 +1,4 @@
-default: run
+default: buildAndRestart
 
-run:
-	git pull
-	docker-compose down
-	docker build  -t yoga-website .
-	docker run -it -p 80:80 --rm yoga-website &
+buildAndRestart:
+	docker-compose up -d --force-recreate --build
