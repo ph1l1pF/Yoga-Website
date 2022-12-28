@@ -13,6 +13,8 @@ jobs:
         run: ls -a
       - name: show key file
         run: cat ssh_key
+      - name: show other file
+        run: cat deploy.sh
       - name: Run deployment
         run: bash deploy.sh
       - name: delete ssh key file
