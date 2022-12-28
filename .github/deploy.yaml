@@ -1,0 +1,8 @@
+name: DeployOnServer
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run deployment
+        run: bash deploy.sh
