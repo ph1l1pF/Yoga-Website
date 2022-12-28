@@ -12,6 +12,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: echo "$SSH_PRIVATE_KEY" > ssh_key
       - name: Run deployment
-        run: ./deploy.sh
+        run: chmod +x deploy.sh && ./deploy.sh
       - name: delete ssh key file
         run: rm ssh_key
