@@ -1,5 +1,7 @@
 name: DeployOnServer
 
+on: [push]
+
 jobs:
   build:
     steps:
