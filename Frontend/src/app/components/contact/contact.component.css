@@ -1,0 +1,45 @@
+.address {
+    line-height: 20px;
+    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+.contact-data {
+    line-height: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin-top: 45px;
+    color: black;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+.sent-message-success {
+    margin-top: 10px;
+    color: rgb(138, 236, 138);
+}
+
+.sent-message-failure {
+    color: orange;
+}
+
+.spinner {
+    margin-left: 10px;
+}
+
+.small-text {
+    color: darkgray;
+}
+
+.button-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button-area > * {
+    margin-top: 10px;
+    margin-right: 10px;
+}

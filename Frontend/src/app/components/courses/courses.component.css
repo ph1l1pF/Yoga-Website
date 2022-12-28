@@ -1,0 +1,37 @@
+.elements{
+    font-size: medium;
+}
+
+.bottom-notice {
+    margin-top: 40px;
+    font-size: medium;
+    color: black;
+    line-height: normal;
+}
+
+.circle {
+    height: 95px;
+    width: 95px;
+    background-color: white;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #C1272D;
+    text-align: center;
+    font-weight: 24px;
+    margin-bottom: 10px;
+  }
+
+.image-and-heading {
+    display: flex;
+}
+
+.course-heading {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.description {
+    margin-left: 20px;
+}

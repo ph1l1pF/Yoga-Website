@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  yoga-website-frontend:
+    container_name: yoga-website-frontend
+    build: ./Frontend
+    restart: always
+    ports:
+      - '80:80'
+
+  yoga-website-backend:
+    container_name: yoga-website-backend
+    restart: always
+    build: ./Backend/YogaBackendAPI
+    ports:
+      - "82:80"
+    env_file:
+      - .env
+
+  
+  

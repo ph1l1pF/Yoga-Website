@@ -1,0 +1,1 @@
+export type MessageState = 'idle' | 'sending' | 'sentSuccessfully' | 'sentFailure';
