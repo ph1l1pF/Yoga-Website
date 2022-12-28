@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: test
-        run: bash ls
+        run: ls
       - name: Run deployment
         run: bash deploy.sh
