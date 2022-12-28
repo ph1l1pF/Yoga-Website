@@ -3,10 +3,12 @@ name: DeployOnServer
 on: [push]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: create ssh folder
+        run: mkdir /.ssh
       - name: create ssh key file
         run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > /.ssh/id_rsa
       - name: Run deployment
