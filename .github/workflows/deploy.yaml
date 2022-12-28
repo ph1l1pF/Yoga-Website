@@ -8,9 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: echo
-        run: echo ${{ secrets.PRODUCTION_DEPLOY_KEY }}
+        run: echo ${{ secrets.SSH_PRIVATE_KEY }}
       - name: create ssh key file
-        run: echo ${{ secrets.PRODUCTION_DEPLOY_KEY }} > ssh_key
+        run: echo ${{ secrets.SSH_PRIVATE_KEY }} > ssh_key
       - name: list
         run: ls -a
       - name: show key file
