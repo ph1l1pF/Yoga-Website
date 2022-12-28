@@ -7,17 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: echo
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
       - name: create ssh key file
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
-      - name: list
-        run: ls -a
-      - name: show key file
-        run: cat ssh_key
-      - name: show other file
-        run: cat deploy.sh
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > /.ssh/id_rsa
       - name: Run deployment
         run: bash deploy.sh
       - name: delete ssh key file
-        run: rm ssh_key
+        run: rm /.ssh/id_rsa
