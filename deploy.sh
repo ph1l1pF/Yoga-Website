@@ -1,1 +1,1 @@
-shh root@195.201.3.237 'bash -s' ./start_on_server.sh
+ssh root@195.201.3.237 'bash -s' ./start_on_server.sh
