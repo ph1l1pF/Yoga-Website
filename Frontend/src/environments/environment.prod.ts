@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backendServerAdress: '116.203.44.102',
+  backendServerAdress: '195.201.3.237',
   backendServerPort: '82'
 };
