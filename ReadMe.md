@@ -1,6 +1,6 @@
 # Yoga Website
 
-Code for the Yoga Website from my mom: https://yoga-schule-heepen.de
+Code for the Yoga Website from my mom: http://yoga-schule-heepen.de
 
 ## Start locally
 
