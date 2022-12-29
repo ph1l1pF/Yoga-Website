@@ -3,7 +3,7 @@ name: DeployOnServer
 on: [push]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,4 +14,4 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-                      bash ./start_on_server.sh
+                      bash /bin/start_yoga_website.sh
