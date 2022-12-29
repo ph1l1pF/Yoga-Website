@@ -13,7 +13,15 @@ Run `start.sh` to run backend and frontend with docker compose.
 
 ## Environment
 
-- create `.env` file at repo root level (is ignored by git)
+create `.env` file at repo root level (is ignored by git) with the following content:
+
+```env
+MailCompany=somemail
+PasswordMailCompany=somepassword
+SmptServerMailCompany=smtpserver
+SmptPortMailCompany=587
+MongoConnectionString=a mongo connection string
+```
 
 ## Build and deployment
 
@@ -24,3 +32,7 @@ Run `start.sh` to run backend and frontend with docker compose.
 - the script has the content of [start_on_server.sh](start_on_server.sh)
 - that script has to be copied to /bin on the remove machine before hand (this step is not automated)
 - also the repo has to be cloned to ~/git before hand (this step is not automated)
+
+### Future Ideas
+
+- push the docker images to docker hub and then only pull the docker images on the remote machine instead of cloning the full repo and pulling the latest code
