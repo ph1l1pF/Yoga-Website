@@ -1,1 +1,0 @@
-ssh -i /home/runner/.ssh/id_rsa root@195.201.3.237 'bash -s' ./start_on_server.sh

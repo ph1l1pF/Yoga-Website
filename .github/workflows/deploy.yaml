@@ -10,12 +10,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: build
         run: touch .env && docker-compose build
-      - name: executing remote ssh commands using password
+      - name: deploy via ssh
         if: success()
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
-                      bash /bin/start_yoga_website.sh
+          script: ~/git/Yoga-Website/start_on_server.sh
