@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        run: docker-compose build
+        run: touch .env && docker-compose build
       - name: executing remote ssh commands using password
         if: success()
         uses: appleboy/ssh-action@master
