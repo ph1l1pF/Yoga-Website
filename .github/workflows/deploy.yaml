@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: build
+        run: docker-compose build
       - name: executing remote ssh commands using password
+        if: success()
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
