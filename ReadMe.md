@@ -4,7 +4,7 @@ Code for the Yoga Website from my mom: http://yoga-schule-heepen.de
 
 ## Start locally
 
-Run `start.sh` to run backend and frontend with docker compose.
+Run [start.sh](start.sh) to run backend and frontend with docker compose.
 
 ## Parts
 
@@ -28,8 +28,7 @@ MongoConnectionString=a mongo connection string
 - The application (frontend + backend) is deployed on a remote machine
 - a github workflow is used for that
 - the workflow is triggered when a push to the main branch is executed
-- it executes a shell script via ssh on the remove server ([tutorial](https://nbailey.ca/post/github-actions-ssh/))
-- the script has the content of [start_on_server.sh](start_on_server.sh)
+- it executes [start_on_server.sh](start_on_server.sh) via ssh on the remove server ([tutorial](https://nbailey.ca/post/github-actions-ssh/))
 - the repo has to be cloned to ~/git before hand (this step is not automated)
 
 ### Future Ideas
