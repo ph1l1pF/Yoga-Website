@@ -17,4 +17,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: ~/git/Yoga-Website/start_on_server.sh
+          script: cd ~/git/Yoga-Website && chmod +x start_on_server.sh && ./start_on_server.sh
