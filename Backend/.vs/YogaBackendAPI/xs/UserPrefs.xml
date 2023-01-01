@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{119C9C78-735D-4458-8495-5A71B0F733BF}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YogaBackendApi/Controllers/MailController.cs">
+    <Files>
+      <File FileName="YogaBackendApi/Controllers/MailController.cs" Line="11" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="YogaBackendAPI" expanded="True">
+            <Node name="YogaBackendApi" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="MongoDB.Driver" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.YogaBackendApi PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

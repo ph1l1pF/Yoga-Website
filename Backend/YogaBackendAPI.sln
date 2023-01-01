@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaBackendAPI", "YogaBackendAPI\YogaBackendAPI.csproj", "{119C9C78-735D-4458-8495-5A71B0F733BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaBackendApi", "YogaBackendApi\YogaBackendApi.csproj", "{119C9C78-735D-4458-8495-5A71B0F733BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
