@@ -1,10 +1,10 @@
 # Stage 1
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /build
 COPY . .
 RUN dotnet publish -c Release -o /app
 # Stage 2
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /app
 COPY --from=build /app .
 COPY --from=build /build/entrypoint.sh .
