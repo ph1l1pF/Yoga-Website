@@ -1,7 +1,6 @@
-using System;
-using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
+using MimeKit;
 using YogaBackendAPI.Models;
 
 namespace YogaBackendAPI.Services
@@ -32,30 +31,34 @@ namespace YogaBackendAPI.Services
             var mailCustomer = reqBody.MailCustomer.Trim();
             var nameCustomer = reqBody.NameCustomer.Trim();
 
-            var mailToCompany = new MailMessage
-            {
-                From = new MailAddress(mailCustomer),
-                Subject = "Yoga-Anfrage",
-                Body = $"Neue Yoga-Anfrage von {nameCustomer}\n{mailCustomer}\n\n{reqBody.Message}"
-            };
-            mailToCompany.To.Add(_mailCompany);
 
-            var mailToCustomer = new MailMessage
-            {
-                From = new MailAddress(_mailCompany),
-                Subject = "Vielen Dank für Ihre Anfrage",
-                Body = $"Hallo {nameCustomer},\n\n{_answerToCustomer}"
-            };
-            mailToCustomer.To.Add(mailCustomer);
+            var confirmMsgToCustomer = new MimeMessage ();
+            confirmMsgToCustomer.From.Add (new MailboxAddress ("Dagmar Frerk", _mailCompany));
+            confirmMsgToCustomer.To.Add (new MailboxAddress (nameCustomer, mailCustomer));
+            confirmMsgToCustomer.Subject = "Vielen Dank für Ihre Anfrage";
 
-            var smtpServer = new SmtpClient(_configuration.GetValue<string>("SmptServerMailCompany"))
-            {
-                Port = _configuration.GetValue<int>("SmptPortMailCompany"),
-                Credentials = new NetworkCredential(_mailCompany, _configuration.GetValue<string>("PasswordMailCompany")),
-                EnableSsl = true
-            };
-            smtpServer.Send(mailToCompany);
-            smtpServer.Send(mailToCustomer);
+            confirmMsgToCustomer.Body = new TextPart ("plain") {
+                Text = $"Hallo {nameCustomer},\n\n{_answerToCustomer}"};
+            
+            var messageToCompany = new MimeMessage ();
+            messageToCompany.From.Add (new MailboxAddress (nameCustomer, _mailCompany));
+            messageToCompany.To.Add (new MailboxAddress ("Dagmar Frerk", _mailCompany));
+            messageToCompany.Subject = "Neue Yoga-Anfrage";
+
+            messageToCompany.Body = new TextPart ("plain") {
+                Text = @$"von: {mailCustomer}
+
+                {reqBody.Message}
+                "};
+
+            using var client = new SmtpClient ();
+            client.Connect (_configuration.GetValue<string>("SmptServerMailCompany"), _configuration.GetValue<int>("SmptPortMailCompany"), true);
+
+            // Note: only needed if the SMTP server requires authentication
+            client.Authenticate (_mailCompany, _configuration.GetValue<string>("PasswordMailCompany"));
+            client.Send (confirmMsgToCustomer);
+            client.Send (messageToCompany);
+            client.Disconnect (true);
         }
     }
 }
