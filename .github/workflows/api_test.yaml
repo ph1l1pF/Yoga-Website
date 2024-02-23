@@ -1,0 +1,29 @@
+name: Daily API Request
+
+# on:
+#   schedule:
+#     - cron: '0 0 * * *'  # Run every day at midnight UTC
+
+on: [push]
+
+jobs:
+  api-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Make API Request
+      run: |
+        # Define your JSON payload
+        json_payload='{"message": "das ist eine Testnachricht. Bitte ignorieren.", "mailCustomer": "mafia3gamer@gmail.com", "nameCustomer": "Test-Kunde"}'
+        
+        response_code=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "$json_payload" http://195.201.3.237:82/mail/sendmail)
+        
+        if [ $response_code -eq 200 ]; then
+          echo "API request succeeded (Status Code: 200)"
+          exit 0
+        else
+          echo "API request failed with status code: $response_code"
+          exit 1
+        fi
