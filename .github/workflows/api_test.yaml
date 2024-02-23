@@ -1,10 +1,8 @@
 name: Daily API Request
 
-# on:
-#   schedule:
-#     - cron: '0 0 * * *'  # Run every day at midnight UTC
-
-on: [push]
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Run every Monday at midnight UTC
 
 jobs:
   api-request:
@@ -16,7 +14,7 @@ jobs:
     - name: Make API Request
       run: |
         # Define your JSON payload
-        json_payload='{"message": "das ist eine Testnachricht. Bitte ignorieren.", "xxmailCustomer": "mafia3gamer@gmail.com", "nameCustomer": "Test-Kunde"}'
+        json_payload='{"message": "das ist eine Testnachricht. Bitte ignorieren.", "mailCustomer": "mafia3gamer@gmail.com", "nameCustomer": "Test-Kunde"}'
         
         response_code=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "$json_payload" http://195.201.3.237:82/mail/sendmail)
         
